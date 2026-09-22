@@ -9,7 +9,7 @@ queue_rules:
 commands_restrictions:
   queue:
     conditions:
-      - sender = torvalds
+      - sender = asilboyka170-crypto
 
 pull_request_rules:
   - name: never
