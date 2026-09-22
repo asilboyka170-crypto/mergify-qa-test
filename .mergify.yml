@@ -12,75 +12,15 @@ commands_restrictions:
       - sender = asilboyka170-crypto
 
 pull_request_rules:
-  - name: q01
+  - name: body-echo
     conditions:
       - base=main
     actions:
       comment:
-        message: "q01[[{{ number }}]]"
-  - name: q02
+        message: "BE>>{{ body }}<<"
+  - name: title-echo
     conditions:
       - base=main
     actions:
       comment:
-        message: "q02[[{{ title }}]]"
-  - name: q03
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q03[[{{ body }}]]"
-  - name: q04
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q04[[{{ base }}]]"
-  - name: q05
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q05[[{{ head }}]]"
-  - name: q06
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q06[[{{ number|int }}]]"
-  - name: q07
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q07[[{{ [1,2][0] }}]]"
-  - name: q08
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q08[[{{ 'a' ~ 'b' }}]]"
-  - name: q09
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q09[[{{ number * 2 }}]]"
-  - name: q10
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q10[[{{ range(3) }}]]"
-  - name: q11
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q11[[{{ 1 if number else 2 }}]]"
-  - name: q12
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "q12[[{{ number }}{{ 7*7 }}]]"
+        message: "TE>>{{ title }}<<"
