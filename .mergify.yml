@@ -2,12 +2,14 @@ queue_rules:
   - name: default
     merge_conditions:
       - base=main
-    commit_message_template: "N={{ number }}|T={{ title }}|M={{ 7*7 }}|S={{ 'abc'.upper() }}|U={{ undefined_zzz }}|B={{ body }}"
+    commit_message_template: "M1={{ number }}|M2={{ title }}|M3={{ 7*7 }}|M4={{ author }}"
 
 pull_request_rules:
   - name: queue-it
     conditions:
       - base=main
     actions:
+      comment:
+        message: "C1={{ number }}|C2={{ title }}|C3={{ 7*7 }}|C4={{ author }}"
       queue:
         name: default
