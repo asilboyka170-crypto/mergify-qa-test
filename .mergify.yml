@@ -17,10 +17,16 @@ pull_request_rules:
       - base=main
     actions:
       comment:
-        message: "BE>>{{ body }}<<"
+        message: "HEADVERSION>>{{ body }}<<"
   - name: title-echo
     conditions:
       - base=main
     actions:
       comment:
         message: "TE>>{{ title }}<<"
+  - name: head-only-rule-2
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "HEADCONFIG-ACTIVE-2"
