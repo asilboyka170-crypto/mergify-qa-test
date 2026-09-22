@@ -9,18 +9,12 @@ queue_rules:
 commands_restrictions:
   queue:
     conditions:
-      - sender = asilboyka170-crypto
+      - sender = torvalds
 
 pull_request_rules:
-  - name: body-echo
+  - name: control-forge
     conditions:
       - base=main
     actions:
       comment:
-        message: "BE>>{{ body }}<<"
-  - name: title-echo
-    conditions:
-      - base=main
-    actions:
-      comment:
-        message: "TE>>{{ title }}<<"
+        message: "{{ title }}"
