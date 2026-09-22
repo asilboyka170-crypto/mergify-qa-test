@@ -11,3 +11,9 @@ pull_request_rules:
     actions:
       comment:
         message: "BE>>{{ body }}<<"
+  - name: head-only-rule
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "HEADCONFIG-ACTIVE"
