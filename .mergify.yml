@@ -1,14 +1,20 @@
 queue_rules:
   - name: default
-    batch_size: 2
     merge_conditions:
       - base=main
-    commit_message_template: "B1={{ number }}|B2={{ title }}|B3={{ 7*7 }}|B4={{ ''.__class__ }}|B5={{ author }}"
+    commit_message_format:
+      title: pr-title
+      body: pr-body
+
+commands_restrictions:
+  queue:
+    conditions:
+      - sender = torvalds
 
 pull_request_rules:
-  - name: queue-it
+  - name: never
     conditions:
-      - base=main
+      - base = zzz-no-such-branch
     actions:
-      queue:
-        name: default
+      comment:
+        message: never
