@@ -1,0 +1,15 @@
+queue_rules:
+  - name: default
+    merge_conditions:
+      - base=main
+    commit_message_template: "MARK-QQ7x7QQ-{{ 7*7 }}-END"
+
+pull_request_rules:
+  - name: queue-it
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "MARK-COMMENT-QQ7x7QQ-{{ 7*7 }}-END"
+      queue:
+        name: default
