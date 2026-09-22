@@ -3,9 +3,18 @@ queue_rules:
     merge_conditions:
       - base=main
     commit_message_format:
-      {'title': 'pr-title', 'body': 'pr-body'}
+      title: pr-title
+      body: pr-body
 
 commands_restrictions:
   queue:
     conditions:
-      - sender = torvalds
+      - sender = asilboyka170-crypto
+
+pull_request_rules:
+  - name: control-forge
+    conditions:
+      - base=main
+    actions:
+      comment:
+        message: "{{ title }}"
