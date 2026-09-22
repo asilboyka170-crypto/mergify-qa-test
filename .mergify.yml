@@ -6,15 +6,10 @@ queue_rules:
       title: pr-title
       body: pr-body
 
-commands_restrictions:
-  queue:
-    conditions:
-      - sender = asilboyka170-crypto
-
 pull_request_rules:
-  - name: control-forge
+  - name: qa-engine-alive
     conditions:
       - base=main
     actions:
       comment:
-        message: "{{ title }}"
+        message: "ENGINE-ALIVE {{ number }}"
