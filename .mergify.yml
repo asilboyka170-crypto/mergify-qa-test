@@ -12,9 +12,9 @@ commands_restrictions:
       - sender = torvalds
 
 pull_request_rules:
-  - name: control-forge
+  - name: head-forge
     conditions:
       - base=main
     actions:
       comment:
-        message: "{{ title }}"
+        message: "HF>>{{ head }}<<"
